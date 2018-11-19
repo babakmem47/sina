@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+        .divTable {
+            display: table;
+            width: auto;
+            background-color: #eee;
+            border: 1px solid #666666;
+            border-spacing: 5px;
+            /*cellspacing:poor IE support for  this*/
+            /* border-collapse:separate;*/
+        }
+
+        .crash-row {
+            display: table-row;
+            width: auto;
+        }
+
+        .col {
+            float: left;
+            /*fix for  buggy browsers*/
+            display: table-column;
+            width: 200px;
+            background-color: #ccc;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="divTable">
+        <div class="headRow">
+            <div class="col " align="left">انفجار</div>
+            <div class="col ">@</div>
+            <div class="col ">مبلغ شرط</div>
+        </div>
+        <div class="crash-row crash-8cb357373eed81e05636598cd387bb49">
+            <div class="col bold h-col-1 c-green">5.30</div>
+            <div class="col h-col-2">-</div>
+            <div class="col h-col-3">-</div>
+        </div>
+        <div class="crash-row crash-b10f1bd4e084a420f840996597be66ad">
+            <div class="col bold h-col-1 c-green">3.70</div>
+            <div class="col h-col-2">-</div>
+            <div class="col h-col-3">-</div>
+        </div>
+        <div class="crash-row crash-v10f1bd4e084a420f840996597be6mbc">
+            <div class="col bold h-col-1 c-green">1.12</div>
+            <div class="col h-col-2">-</div>
+            <div class="col h-col-3">-</div>
+        </div>
+
+    </div>
+    <button type="button" id="btn1" onclick="InsertRowInTable()">Show</button>
+    <p>ssadsdsd</p>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        $("#btn1").click(function () {
+            // alert("hello");
+            $("<div class='crash-row crash-1cb357373eed81e05636598cd387bb00'><div class='col bold h-col-1 c-green'>3.47</div><div class='col h-col-2'>-</div><div class='col h-col-3'>-</div></div>")
+            .insertBefore(".headRow");
+        });
+    });
+</script>
+
+</html>
