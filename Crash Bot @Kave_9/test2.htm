@@ -61,13 +61,37 @@
 </body>
 
 <script>
-    $(document).ready(function () {
-        $("#btn1").click(function () {
-            // alert("hello");
-            $("<div class='crash-row crash-1cb357373eed81e05636598cd387bb00'><div class='col bold h-col-1 c-green'>3.47</div><div class='col h-col-2'>-</div><div class='col h-col-3'>-</div></div>")
-            .insertBefore(".headRow");
+    var mutationObserver = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutations) {
+            console.log(mutation)
         });
     });
+    // Starts listening for changes in the root HTML element of the page. 
+    mutationObserver.observe(document.documentElement, {
+        attributes: true,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: true,
+        characterDataOldValue: true
+    });
+
+
+    $(document).ready(function () {
+        $("#btn1").click(function () {
+            var listDiv = document.getElementsByClassName("crash-row");
+            var firstDiv = listDiv[0];
+            var x = "<div class='crash-row crash-00000000000000000000000000'>\
+                        <div class='col bold h-col-1 c-green'>1.11</div>\
+                        <div class='col h-col-2'>-</div><div class='col h-col-3'>-</div>\
+                    </div>";
+            $(x).insertBefore(firstDiv);
+            // alert("hello");
+            // $("<div class='crash-row crash-1cb357373eed81e05636598cd387bb00'><div class='col bold h-col-1 c-green'>3.47</div><div class='col h-col-2'>-</div><div class='col h-col-3'>-</div></div>")
+            // .insertBefore(".headRow");
+        });
+    });
+
 </script>
 
 </html>

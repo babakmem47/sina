@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!-- <script>
+        var textToSave = 'this is a test';
+
+        var hiddenElement = document.createElement('a');
+
+        hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+        hiddenElement.target = '_blank';
+        hiddenElement.download = 'myFile.txt';
+        hiddenElement.click();
+    </script> -->
+    <!-- <script>
+        var typedArray = ["1.41", "38.88", "2.38", "2.27", "2.99", "3.18", "2.84", "1.73"];//GetTheTypedArraySomehow();
+        var blob = new Blob([typedArray], { type: 'application/octet-binary' });
+        // pass a useful mime type here
+        var url = URL.createObjectURL(blob);
+        // url will be something like: blob:d3958f5c-0777-0845-9dcf-2cb28783acaf
+        // now you can use the url in any context that regular URLs can be used
+        // in, for example img.src, etc.
+    </script> -->
+
+
+    // this worked!
+    <script>
+        // Loop through all links
+        links = ["1.41", "38.88", "2.38", "2.27", "2.99", "3.18", "2.84", "1.73"];
+        for (var i = 0; i < links.length; i++) {
+
+            // Store links in variable
+            var linksArray = links[i];
+
+            // Works fine in console
+            console.log(linksArray);
+        }
+
+        // Create text document — only saves 1st link in text doc
+        var textDoc = document.createElement('a');
+
+        textDoc.href = 'data:attachment/text,' + encodeURI(links);
+        textDoc.target = '_blank';
+        textDoc.download = 'myFile.txt';
+        textDoc.click();
+    </script>
+</body>
+
+</html>
