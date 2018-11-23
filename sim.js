@@ -12,24 +12,19 @@ $(document).ready(function () {
             alert('bye');
         }
     });
-    // var i = 0;
-    // $("#BetButton").click(function () {
-    //     if (i == 0) {
-    //         $(this).css("background-color", "#FFF");
-    //         i = 1;
-    //     }
-    //     else {
-    //         $(this).css("background-color", "#000");
-    //         i = 0;
-    //     }
-    // });
+    
+    $("#btn1").click(function () {
+        var listDiv = document.getElementsByClassName("divRow");
+        var firstDiv = listDiv[0];
+        var x = "<div class='divRow'>\
+                    <div class='divCell'>x</div>\
+                    <div class='divCell'>y</div>\
+                    <div class='divCell'>z</div>\
+                    <div class='divCell'>vv</div>\
+                </div>";
+        $(x).insertBefore(firstDiv);
+     
+    });
 
-    // $("#BetButton").toggleClass("btn-dark");
-    // // if (white = !white) {
-    //     bgcolor = $(this).css('backgroundColor');
-    //     $(this).css("background-color", "#FFF");
-    // } else {
-    //     $(this).css("background-color", bgcolor);
-    // }
 });
 
