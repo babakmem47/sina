@@ -22,43 +22,62 @@
             float: left;
             /*fix for  buggy browsers*/
             display: table-column;
-            width: 200px;
+            width: 100px;
             background-color: #ccc;
         }
     </style>
+    <script src="/js/jquery-3.3.1.js"></script>
 
 </head>
 
 <body>
-    <form id="form1">
-        <div class="divTable">
-            <div class="headRow">
-                <div class="divCell" align="center">Customer ID</div>
-                <div class="divCell">Customer Name</div>
-                <div class="divCell">Customer Address</div>
-            </div>
-            <div class="divRow">
-                <div class="divCell">001</div>
-                <div class="divCell">002</div>
-                <div class="divCell">003</div>
-            </div>
-            <div class="divRow">
-                <div class="divCell">xxx</div>
-                <div class="divCell">yyy</div>
-                <div class="divCell">www</div>
-            </div>
-            <div class="divRow">
-                <div class="divCell">ttt</div>
-                <div class="divCell">uuu</div>
-                <div class="divCell">Mkkk</div>
-            </div>
-
+    <button type="button" id="btn1" onclick="InsertRowInTable()">Show</button>
+    <!-- <form id="form1"> -->
+    <div class="divTable">
+        <div class="headRow">
+            <div class="divCell">انفجار</div>
+            <div class="divCell">@</div>
+            <div class="divCell">مبلغ شرط</div>
+            <div class="divCell">سود</div>
         </div>
-    </form>
+        <div class="divRow">
+            <div class="divCell">001</div>
+            <div class="divCell">002</div>
+            <div class="divCell">003</div>
+        </div>
+        <div class="divRow">
+            <div class="divCell">xxx</div>
+            <div class="divCell">yyy</div>
+            <div class="divCell">www</div>
+        </div>
+        <div class="divRow">
+            <div class="divCell">ttt</div>
+            <div class="divCell">uuu</div>
+            <div class="divCell">Mkkk</div>
+        </div>
+
+    </div>
+    <!-- </form> -->
+
+
+    <script>
+
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                var listDiv = document.getElementsByClassName("divRow");
+                var firstDiv = listDiv[0];
+                var x = "<div class='divRow'>\
+                            <div class='divCell'>\
+                            <div class='divCell'>\
+                            <div class='divCell'>\
+                        </div>";
+                $(x).insertBefore(firstDiv);
+             
+            });
+        });
+    </script>
 </body>
 
-<script>
-    
-</script>
+
 
 </html>
