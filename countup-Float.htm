@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/js/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <br/>
+    <br/>
+    <div class="counter" style="font-size: 36px; text-align:center ">5.63</div>
+    <div style="background:#98bf21;height:100px;width:200px;position:absolute;">HELLO</div>
+
+    <script>
+        // function startCounter() {
+        //     var $div = $('.counter');
+        //     var size = $div.text().split(".")[1] ? $div.text().split(".")[1].length : 0;
+        //     $div.prop('Counter', 0).animate({
+        //         Counter: $div.text()
+        //     }, {
+        //             duration: 1000,
+        //             //easing: 'linear',
+        //             step: function (now) {
+        //                 $div.text(parseFloat(now).toFixed(size));
+        //             }//,
+        //             // complete: function () {
+        //             //     $div.addClass('loaded');
+        //             //     $div.stop();
+        //             // }
+        //         });
+        // }
+
+        function startCounter(value) {
+            var $div = $('.counter');
+
+            $div.prop('Counter', 0).animate({
+                Counter: value
+            }, {
+                    duration: 2000,
+                    //easing: 'linear',
+                    step: function (now) {
+                        $div.text(parseFloat(now).toFixed(2));
+
+                    },
+                    complete: function () {
+                        $div.removeProp('Counter');
+                    }
+                });
+
+        }
+
+        // function timeout() {
+        //     setTimeout(function () {
+        //         // Do Something Here
+        //         // Then recall the parent function to
+        //         // create a recursive loop.
+        //         timeout();
+        //     }, 5000);
+        // }
+        var array = [3.42, 1.66, 4.44, 8.76, 2.33];
+        for (var i = 0; i < array.length; i++) {
+            startCounter(array[i]);
+            var div = $("div");
+            div.animate({ left: '100px' }, "slow");
+            div.animate({ left: '10px' }, "slow");
+            div.animate({ left: '10px' }, "slow");
+            div.animate({ left: '10px' }, "slow");
+        }
+
+
+
+        // document.getElementsByClassName("counter")[0].innerHTML = array[i];
+        // startCounter();
+        // setTimeout(function () {
+        //     document.getElementsByClassName("counter")[0].innerHTML = array[i + 1];
+        //     startCounter();
+        // }, 2000)
+
+    // document.getElementsByClassName("counter")[0].innerHTML = 1.02;
+    // startCounter();
+
+    </script>
+</body>
+
+</html>

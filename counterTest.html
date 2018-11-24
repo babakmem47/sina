@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/js/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <button id="startAnimeBtn">Start Animation</button>
+    <button id="stopAnimeBtn">Stop Animation</button>
+    <br />
+    <br />
+    <div class="counter" style="font-size: 36px; text-align:center ">5.63</div>
+
+    <script>
+        $(document).ready(function () {
+            var list = [3.42, 1.66, 4.44, 8.76, 2.33];
+            $("#startAnimeBtn").click(function () {
+                //myVar = setInterval(callMe(list), 4000);
+                callMe(list);
+            });
+            $("#stopAnimeBtn").click(function () {
+                $("div").animate().stop;
+                clearInterval(myVar);
+            });
+        });
+
+        function callMe(list) {
+            for (var i = 0; i < list.length; i++) {
+                var $div = $('.counter');
+                
+                $div.prop('Counter', 0).animate({
+                    Counter: list[i]
+                }, {
+                        duration: 3000,
+                        //easing: 'linear',
+                        step: function (now) {
+                            $div.text(parseFloat(now).toFixed(2));
+                        },
+                        complete: function () {
+
+                            $div.removeProp('Counter');
+                        }
+                    });
+                // $div.text() = 1.11;
+                // var myVar = setTimeout(myFunc, 10);
+                // clearTimeout(myVar);
+            }
+        }
+    </script>
+</body>
+
+</html>
