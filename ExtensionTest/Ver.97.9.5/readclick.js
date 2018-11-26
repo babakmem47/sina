@@ -4,19 +4,23 @@ window.onload = function () {
     var burstHistory = [];
     var currentBurst = 666;
     var looseCount = 0;
-    var mablagh = 10;
-    var zarib = 3.00;
+    var zarib = 1.40;
+    var zararTaInja = 0;
+    var wantedProfit = 10;
+    var mablagh_Start = 26;// =  Math.round((zararTaInja + wantedProfit) / (zarib - 1));;
+    var mablagh = mablagh_Start;
     var playing = false;
-    document.getElementsByClassName("cashout-amount")[0].value = 3.00;
+    var firstTime = true;
+    document.getElementsByClassName("cashout-amount")[0].value = 1.40;
 
     // if (document.getElementsByClassName("crash-row")[1].children[0].innerHTML) {
     // 	currentBurst = document.getElementsByClassName("crash-row")[1].children[0].innerHTML;
     // }
 
     function myTimer() {
-        //var mablagh = document.getElementsByClassName("game-amount")[0].value;
-        var zarib = document.getElementsByClassName("cashout-amount")[0].value;
-        console.log("mablagh: " + mablagh + "    zarib: " + zarib + "   lastBurst: " + currentBurst);
+        var mablagh = document.getElementsByClassName("game-amount")[0].value;
+        //var zarib = document.getElementsByClassName("cashout-amount")[0].value;
+        // console.log("mablagh: " + mablagh + "    zarib: " + zarib + "   lastBurst: " + currentBurst);
         var newBurst = document.getElementsByClassName("crash-row")[1].children[0].innerHTML;
         var saveAlready = true;
         if (newBurst != currentBurst) {
@@ -27,60 +31,41 @@ window.onload = function () {
             if (playing) {
                 if (zarib > currentBurst) {  // loose
                     looseCount++;
-                    if (looseCount == 1) {
-                        mablagh = 20;
+                    zararTaInja = zararTaInja + mablagh;
+                    if (looseCount >= 6) {
+                        clearInterval(myVar);
                     }
-                    else if (looseCount == 2) {
-                        mablagh = 40;
+                    else {
+                        mablagh = Math.round((zararTaInja + wantedProfit) / (zarib - 1));
                     }
-                    else if (looseCount == 3) {
-                        mablagh = 80;
-                    }
-                    else if (looseCount == 4) {
-                        mablagh = 160;
-                    }
-                    else if (looseCount == 5) {
-                        mablagh = 320;
-                    }
-                    else if (looseCount == 6) {
-                        mablagh = 640;
-                    }
-                    else if (looseCount == 7) {
-                        mablagh = 1280;
-                    }
-                    else if (looseCount == 8) {
-                        mablagh = 2560;
-                    }
-                    else if (looseCount == 9) {
-                        mablagh = 5120;
-                    }
-                    else if (looseCount == 10) {
-                        mablagh = 10240;                        
-                    }
-                    else if (looseCount == 11) {
-                        mablagh = 10;
-                    }
-                    
+
+                    firstTime = false;
                 }
                 else {                      // win
-                    mablagh = 10;
+                    mablagh = mablagh_Start;
                     looseCount = 0;
+                    zararTaInja = 0;
                 }
+                console.log("mablagh: " + mablagh + "    zararTaInja: " + zararTaInja + "   lastBurst: " + currentBurst + "   looseCount: " + looseCount );
                 document.getElementsByClassName("game-amount")[0].value = mablagh;
-                var betButton = document.getElementsByClassName("place-bet")[0];
-                betButton.click();
+                // var betButton = document.getElementsByClassName("place-bet")[0];
+                // betButton.click();
             }
-            else {
-                document.getElementsByClassName("game-amount")[0].value = 10;
-                var betButton = document.getElementsByClassName("place-bet")[0];
-                betButton.click();
+            else if (firstTime) {
+                document.getElementsByClassName("game-amount")[0].value = mablagh_Start;
+                document.getElementsByClassName("cashout-amount")[0].value = zarib;
+                // var betButton = document.getElementsByClassName("place-bet")[0];
+                // betButton.click();
+                console.log("First Time: "+ "mablagh: " + mablagh + "    zararTaInja: " + zararTaInja + "   lastBurst: " + currentBurst + "   looseCount: " + looseCount );
+                
                 playing = true;
+                firstTime = true;
             }
 
         }
 
         // Save every burst history every 100 entry
-        if (burstHistory.length % 50 == 0 && saveAlready == false) {
+        if (burstHistory.length % 25 == 0 && saveAlready == false) {
             var textDoc = document.createElement('a');
             textDoc.href = 'data:attachment/text,' + encodeURI(burstHistory);
             textDoc.target = '_blank';

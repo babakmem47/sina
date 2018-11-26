@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <script src="/js/jquery-3.3.1.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="simQuickResult.js"></script>
+    <title>Simulation </title>
+    <style type="text/css">
+        .divTable {
+            display: table;
+            width: auto;
+            background-color: #eee;
+            border: 1px solid #666666;
+            border-spacing: 5px;
+            /*cellspacing:poor IE support for  this*/
+            /* border-collapse:separate;*/
+        }
+
+        .divRow {
+            display: table-row;
+            width: auto;
+        }
+
+        .divCell {
+            float: left;
+            /*fix for  buggy browsers*/
+            display: table-column;
+            width: 70px;
+            background-color: whitesmoke;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-6"></div>
+            <div class="col-lg-4">
+                <h3>
+                    <div class="top-link chips-amount">135,138 تومان</div>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <br/>
+                <br/>
+                <br/>
+                <div class="counter" style="font-size: 36px; text-align:center " >9.63</div>
+            </div>
+            <div class="col-lg-4">
+                <div class="title lang_64">مبلغ</div>
+                <input type="text" class="game-amount" value="1,000" style="width: 200px; background-color: white; border-color:  gray">
+                <br/>
+                <br/>
+                <div class="title lang_65">برداشت اتوماتیک در این ضریب</div>
+                <input type="text" class="cashout-amount" value="2.00" style="width: 200px; background-color: white; border-color:  gray">
+                <br/>
+                <br/>
+                <button id="BetButton" class="btn-warning" onclick="ClickBet()">
+                    <a href="javascript:;" class="place-bet lang_66">ثبت شرط</a>
+                </button>
+                <br/>
+                <!-- <button class="btn btn-dark"><a href="javascript:;" class="place-bet lang_66 place-bet-cancel">لغو
+                        <br>
+                        <span style="font-size: 12px;">( در بازی بعدی شرکت کنید)</span>
+                    </a>
+                </button> -->
+                <!-- <button class="toggler">Toggle me</button> -->
+                <!-- <button type="button" id="btn1" onclick="InsertRowInTable()">Show</button> -->
+                <!-- <div class='divCell' style= 'color: red'> " + burst + "</div>\ -->
+                    
+
+            </div>
+            <div class="col-lg-2">
+                    <div style="background:#98bf21;height:100px;width:200px;position:absolute;">HELLO</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="divTable">
+                    <div class="headRow">
+                        <div class="divCell" style="background-color:darkgrey">انفجار</div>
+                        <div class="divCell" style="background-color:darkgrey">@</div>
+                        <div class="divCell" style="background-color:darkgrey">مبلغ شرط</div>
+                        <div class="divCell" style="background-color:darkgrey">سود</div>
+                        <div class="divCell" style="background-color:darkgrey">ضرر</div>
+                        <div class="divCell" style="background-color:darkgrey">مانده سرمایه</div>
+                    </div>
+                    <div class="divRow">
+                        <div class="divCell">001</div>
+                        <div class="divCell">002</div>
+                        <div class="divCell">003</div>
+                        <div class="divCell">003</div>
+                    </div>
+                    <div class="divRow">
+                        <div class="divCell">xxx</div>
+                        <div class="divCell">yyy</div>
+                        <div class="divCell">yyy</div>
+                        <div class="divCell">www</div>
+                    </div>
+                   
+
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+            <div class="col-lg-3"></div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>
