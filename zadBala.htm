@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <script src="/js/jquery-3.3.1.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/zadBala.js"></script>
+    <title>Calculate profit base on initial value </title>
+    <style type="text/css">
+        .divTable {
+            display: table;
+            width: auto;
+            background-color: #eee;
+            border: 1px solid #666666;
+            border-spacing: 10px;
+            /*cellspacing:poor IE support for  this*/
+            /* border-collapse:separate;*/
+        }
+
+        .divRow {
+            display: table-row;
+            width: auto;
+        }
+
+        .divCell {
+            float: left;
+            /*fix for  buggy browsers*/
+            display: table-column;
+            width: 120px;
+            background-color: whitesmoke;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <h2>محاسبه سود و ضرر بر مبنای مبلغ اولیه و ضریب تعیین شده </h2>
+            <br/>
+            <form class="form-horizontal" method="dialog"> <!--action="/action_page.php"-->
+                <div class="form-group">
+                        <label class="control-label col-sm-2" for="Interest">سرمایه :</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" style="width: 150px; background-color: white;" id="Interest" placeholder="مبلغ سر...">
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="InitialBet">مبلغ شروع :</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" style="width: 150px; background-color: white;" id="InitialBet" placeholder="به تومان ...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Index">ضریب :</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" style="width: 70px; background-color: white;" id="Index" placeholder="ضریب..." value= "3.00">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button class="btn btn-primary" onclick="Calculate()">محاسبه</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+       
+        <!-- <div class="row">
+            <div class="col-lg-12">
+                <hr>
+            </div>
+        </div> -->
+        
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="divTable">
+                    <div class="headRow">
+                        <div class="divCell" style="background-color:darkgrey">مرحله</div>
+                        <div class="divCell" style="background-color:darkgrey">مبلغ</div>
+                        <div class="divCell" style="background-color:darkgrey">ضریب</div>
+                        <div class="divCell" style="background-color:darkgrey">سود</div>
+                        <div class="divCell" style="background-color:darkgrey">ضرر</div>
+                        <div class="divCell" style="background-color:darkgrey">جمع ضررها</div>
+                        <div class="divCell" style="background-color:darkgrey">مانده سرمایه</div>
+                    </div>
+                    <div class="divRow">
+                    
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

@@ -11,14 +11,14 @@ window.onload = function () {
     var mablagh = mablagh_Start;
     var playing = false;
     var firstTime = true;
-    document.getElementsByClassName("cashout-amount")[0].value = 1.40;
+    document.getElementsByClassName("cashout-amount")[0].value = zarib;
 
     // if (document.getElementsByClassName("crash-row")[1].children[0].innerHTML) {
     // 	currentBurst = document.getElementsByClassName("crash-row")[1].children[0].innerHTML;
     // }
 
     function myTimer() {
-        var mablagh = document.getElementsByClassName("game-amount")[0].value;
+        mablagh = document.getElementsByClassName("game-amount")[0].value;
         //var zarib = document.getElementsByClassName("cashout-amount")[0].value;
         // console.log("mablagh: " + mablagh + "    zarib: " + zarib + "   lastBurst: " + currentBurst);
         var newBurst = document.getElementsByClassName("crash-row")[1].children[0].innerHTML;
